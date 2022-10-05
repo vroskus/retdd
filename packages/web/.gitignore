@@ -1,0 +1,6 @@
+/public/config.js
+/cypress/*
+!/cypress/support
+!/cypress/plugins
+/.nyc_output/
+/test_build/

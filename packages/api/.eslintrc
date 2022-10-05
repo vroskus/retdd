@@ -1,0 +1,49 @@
+{
+  "root": true,
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "ecmaVersion": "latest"
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:flowtype/recommended",
+    "plugin:sort/recommended"
+  ],
+  "plugins": [
+    "import",
+    "flowtype",
+    "sort"
+  ],
+  "rules": {
+    "complexity": ["error", 5],
+    "curly": ["error", "all"],
+    "import/no-cycle": [0],
+    "no-await-in-loop": 0,
+    "no-console": "error",
+    "no-duplicate-imports": [0],
+    "no-loss-of-precision": [0],
+    "no-restricted-syntax": 0,
+    "no-unreachable-loop": [0],
+    "no-useless-backreference": [0],
+    "no-unused-private-class-members": [2],
+    "padding-line-between-statements": ["error", {
+      "blankLine": "always",
+      "prev": "*",
+      "next": "return"
+    }],
+    "object-curly-newline": ["error", {
+      "ObjectExpression": "always",
+      "ObjectPattern": "always",
+      "ImportDeclaration": "always",
+      "ExportDeclaration": "always"
+    }],
+    "sort/imports": [0],
+    "sort/exports": [0]
+  },
+  "env": {
+    "node": true,
+    "jest": true,
+    "es6": true
+  }
+}

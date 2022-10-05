@@ -1,0 +1,114 @@
+{
+  "name": "retdd.web",
+  "version": "1.0.0",
+  "author": "Vilius Roškus <info@regattas.eu>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "postinstall": "exit 0",
+    "start": "yarn start:clean && yarn start:build && yarn start:serve",
+    "start:clean": "rm -Rf dist",
+    "start:build": "SKIP_PREFLIGHT_CHECK=true DISABLE_ESLINT_PLUGIN=true BUILD_PATH='./dist' react-scripts build",
+    "start:serve": "yarn start:serve:config && yarn start:serve:serve",
+    "start:serve:config": "yarn config:prepare ./src/config.js ./dist/config.js && yarn config:timestamp ./dist/index.html",
+    "start:serve:serve": "serve -s dist",
+    "dev": "yarn dev:pre && yarn dev:run",
+    "dev:pre": "yarn config:prepare ./src/config.js ./public/config.js",
+    "dev:run": "SKIP_PREFLIGHT_CHECK=true DISABLE_ESLINT_PLUGIN=true react-scripts start",
+    "config:prepare": "node ./scripts/config-prepare.js",
+    "config:timestamp": "node ./scripts/config-timestamp.js",
+    "eslint": "eslint src test --fix",
+    "flow": "flow",
+    "test": "start-server-and-test test:pre :7001 test:run && yarn test:post",
+    "test:pre": "yarn test:pre:clean && yarn test:pre:build && yarn test:pre:config && yarn test:pre:serve",
+    "test:pre:clean": "rm -rf .nyc_output && rm -rf .test_build",
+    "test:pre:build": "SKIP_PREFLIGHT_CHECK=true DISABLE_ESLINT_PLUGIN=true BUILD_PATH='./test_build' CYPRESS_INSTRUMENT_PRODUCTION=true react-scripts -r @cypress/instrument-cra build",
+    "test:pre:config": "DEPLOYMENT_ENV=TEST yarn config:prepare ./src/config.js ./test_build/config.js",
+    "test:pre:serve": "PORT=7001 serve -s test_build",
+    "test:run": "CYPRESS_baseUrl=http://localhost:7001 cypress run",
+    "test:post": "nyc report --reporter=text && node ./scripts/compare-coverage-threshold.js && jest-coverage-thresholds-bumper",
+    "test:console": "CYPRESS_baseUrl=http://localhost:7001 cypress open",
+    "test:report": "open coverage/lcov-report/index.html"
+  },
+  "dependencies": {
+    "@babel/cli": "7.19.3",
+    "@babel/core": "7.19.3",
+    "@babel/eslint-parser": "7.19.1",
+    "@babel/plugin-proposal-class-properties": "7.18.6",
+    "@babel/plugin-transform-modules-commonjs": "7.18.6",
+    "@babel/polyfill": "7.12.1",
+    "@babel/preset-env": "7.19.3",
+    "@babel/preset-flow": "7.18.6",
+    "@babel/preset-react": "7.18.6",
+    "@babel/register": "7.18.9",
+    "axios": "0.27.2",
+    "bootstrap": "5.2.2",
+    "eslint": "8.24.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-problems": "6.0.0",
+    "eslint-plugin-cypress": "2.12.1",
+    "eslint-plugin-flowtype": "8.0.3",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
+    "eslint-plugin-promise": "6.0.1",
+    "eslint-plugin-react": "7.31.8",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-sonarjs": "0.15.0",
+    "eslint-plugin-sort": "2.4.0",
+    "react": "17.0.2",
+    "react-app-polyfill": "3.0.0",
+    "react-dom": "17.0.2",
+    "react-router-dom": "5.3.0",
+    "react-scripts": "4.0.3",
+    "retdd.api": "^1.0.0",
+    "serve": "14.0.1",
+    "utility.enums": "^1.0.0",
+    "utility.helpers": "^1.0.0",
+    "utility.types": "^1.0.0"
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "3.10.0",
+    "@cypress/instrument-cra": "1.4.0",
+    "cypress": "9.7.0",
+    "flow-bin": "0.188.0",
+    "jest": "29.1.1",
+    "jest-coverage-thresholds-bumper": "1.1.0",
+    "nyc": "15.1.0",
+    "start-server-and-test": "1.14.0"
+  },
+  "nyc": {
+    "all": true,
+    "root": "src",
+    "include": [
+      "src"
+    ],
+    "excludeAfterRemap": true
+  },
+  "jest": {
+    "reporters": [
+      "default"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "text"
+    ],
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "statements": 80.28,
+        "branches": 37.5,
+        "lines": 81.15,
+        "functions": 75
+      }
+    }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "integrationFolder": "./test/e2e/",
+  "video": false,
+  "chromeWebSecurity": false
+}

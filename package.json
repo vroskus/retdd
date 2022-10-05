@@ -1,0 +1,32 @@
+{
+  "name": "retdd",
+  "version": "1.0.0",
+  "author": "Vilius Roškus <info@regattas.eu>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "private": true,
+  "packageManager": "yarn@1.19.0",
+  "scripts": {
+    "start": "docker-compose up",
+    "dev": "lerna run dev",
+    "eslint": "lerna exec yarn eslint",
+    "flow": "yarn flow:pre && yarn flow:run",
+    "flow:pre": "lerna exec yarn postinstall",
+    "flow:run": "flow --show-all-errors"
+  },
+  "devDependencies": {
+    "flow-bin": "0.188.0",
+    "flow-mono-cli": "1.5.3",
+    "flow-typed": "3.8.0",
+    "lerna": "5.5.4",
+    "lerna-update-wizard": "1.1.2"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "utilities/*"
+    ]
+  }
+}
