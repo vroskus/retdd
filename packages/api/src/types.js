@@ -5,7 +5,7 @@ type $ApiRoutes = {|
     params: void,
     response: string,
   |},
-  '/quote/get': {|
+  '/quote/get_one': {|
     params: void,
     response: {|
       value: string,

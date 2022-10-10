@@ -21,11 +21,11 @@ import type {
 const router: $Router = express.Router();
 
 router.get(
-  '/get',
+  '/get_one',
   async (req: $Request, res: $Response) => {
     const quote: string = await Services.Quote.get();
 
-    const responseBody: $ApiRouteResponse<'/quote/get'> = {
+    const responseBody: $ApiRouteResponse<'/quote/get_one'> = {
       value: quote,
     };
 

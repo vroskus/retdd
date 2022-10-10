@@ -49,7 +49,7 @@ class QuoteSectionView extends React.Component<$Props, $State> {
 
       const {
         value,
-      } = await Services.Api.getQuote();
+      } = await Services.Api.getOneQuote();
 
       await this.setStateAsync({
         loading: false,

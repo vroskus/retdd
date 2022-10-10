@@ -10,9 +10,9 @@ import {
 const request = supertest(app);
 
 describe('Quote routes', () => {
-  describe(`/${apiVersion}/quote/get`, () => {
+  describe(`/${apiVersion}/quote/get_one`, () => {
     it('should return one quote', async () => {
-      const response = await request.get(`/${apiVersion}/quote/get`);
+      const response = await request.get(`/${apiVersion}/quote/get_one`);
 
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('value', 'Test quote');

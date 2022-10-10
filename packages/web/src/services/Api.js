@@ -33,10 +33,10 @@ class ApiService<C: $Config> {
     });
   }
 
-  async getQuote(
-    params: $ApiRouteParams<'/quote/get'>,
-  ): Promise<$ApiRouteResponse<'/quote/get'>> {
-    const response = await this.connection.get('/quote/get', params);
+  async getOneQuote(
+    params: $ApiRouteParams<'/quote/get_one'>,
+  ): Promise<$ApiRouteResponse<'/quote/get_one'>> {
+    const response = await this.connection.get('/quote/get_one', params);
 
     return response.data;
   }

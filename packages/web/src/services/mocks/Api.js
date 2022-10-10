@@ -11,7 +11,7 @@ import type {
 } from '../Api';
 
 class ApiServiceMock extends ApiService<$Config> {
-  async getQuote(): Promise<{|
+  async getOneQuote(): Promise<{|
     value: string,
   |}> {
     return {
