@@ -99,10 +99,10 @@
     "collectCoverage": true,
     "coverageThreshold": {
       "global": {
-        "statements": 98,
+        "statements": 98.24,
         "branches": 57.14,
         "lines": 100,
-        "functions": 94.73
+        "functions": 95.45
       }
     }
   },

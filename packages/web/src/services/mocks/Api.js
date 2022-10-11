@@ -23,6 +23,13 @@ class ApiServiceMock extends ApiService<$Config> {
       },
     );
 
+    mock.onGet('/quote/get_two').reply(
+      200,
+      {
+        value: ['Test quote', 'Test quote'],
+      },
+    );
+
     super(config);
   }
 }
