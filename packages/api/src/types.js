@@ -11,6 +11,12 @@ type $ApiRoutes = {|
       value: string,
     |},
   |},
+  '/quote/get_two': {|
+    params: void,
+    response: {|
+      value: [string, string],
+    |},
+  |},
 |};
 
 export type $ApiRouteParams<ROUTE: string> = $ApiRoutes[ROUTE]['params'];

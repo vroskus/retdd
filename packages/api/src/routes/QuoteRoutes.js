@@ -33,4 +33,20 @@ router.get(
   },
 );
 
+router.get(
+  '/get_two',
+  async (req: $Request, res: $Response) => {
+    const value: [string, string] = [
+      await Services.Quote.getQuote(),
+      await Services.Quote.getQuote(),
+    ];
+
+    const responseBody: $ApiRouteResponse<'/quote/get_two'> = {
+      value,
+    };
+
+    res.json(responseBody);
+  },
+);
+
 export default router;

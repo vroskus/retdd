@@ -40,6 +40,14 @@ class ApiService<C: $Config> {
 
     return response.data;
   }
+
+  async getTwoQuotes(
+    params: $ApiRouteParams<'/quote/get_two'>,
+  ): Promise<$ApiRouteResponse<'/quote/get_two'>> {
+    const response = await this.connection.get('/quote/get_two', params);
+
+    return response.data;
+  }
 }
 
 export default ApiService;

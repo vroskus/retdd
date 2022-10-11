@@ -57,6 +57,21 @@ class MainPageView extends React.Component<$Props, $State> {
     });
   }
 
+  async getTwoQuotes(): Promise<void> {
+    await this.setStateAsync({
+      loading: true,
+    });
+
+    const {
+      value,
+    } = await Services.Api.getTwoQuotes();
+
+    await this.setStateAsync({
+      loading: false,
+      value: value.join('\n\n'),
+    });
+  }
+
   render(): $Component {
     const {
       loading,
@@ -83,6 +98,11 @@ class MainPageView extends React.Component<$Props, $State> {
                   id="ButtonGetOneQuote"
                   label="Get one quote"
                   onClick={() => this.getOneQuote()}
+                />
+                <Button
+                  id="ButtonGetTwoQuote"
+                  label="Get two quotes"
+                  onClick={() => this.getTwoQuotes()}
                 />
                 {loading === true && <Spinner />}
               </div>
