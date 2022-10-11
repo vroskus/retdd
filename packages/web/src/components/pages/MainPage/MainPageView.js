@@ -43,27 +43,18 @@ class MainPageView extends React.Component<$Props, $State> {
   }
 
   async getOneQuote(): Promise<void> {
-    try {
-      await this.setStateAsync({
-        loading: true,
-      });
+    await this.setStateAsync({
+      loading: true,
+    });
 
-      const {
-        value,
-      } = await Services.Api.getOneQuote();
+    const {
+      value,
+    } = await Services.Api.getOneQuote();
 
-      await this.setStateAsync({
-        loading: false,
-        value,
-      });
-    } catch (error) {
-      /* eslint-disable-next-line no-console */
-      console.error(error); // This should be error logger
-
-      await this.setStateAsync({
-        loading: false,
-      });
-    }
+    await this.setStateAsync({
+      loading: false,
+      value,
+    });
   }
 
   render(): $Component {
@@ -89,7 +80,6 @@ class MainPageView extends React.Component<$Props, $State> {
               </div>
               <div className="d-flex gap-2">
                 <Button
-                  className="btn-success"
                   id="ButtonGetOneQuote"
                   label="Get one quote"
                   onClick={() => this.getOneQuote()}

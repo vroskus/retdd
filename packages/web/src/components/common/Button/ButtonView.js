@@ -10,7 +10,6 @@ import * as React from 'react';
 
 // Types
 type $OptionalProps = {|
-  className?: string,
   id?: string,
 |};
 
@@ -21,7 +20,6 @@ type $Props = {|
 |};
 
 const ButtonView = function ({
-  className,
   id,
   label,
   onClick,
@@ -30,7 +28,7 @@ const ButtonView = function ({
     <button
       id={id}
       type="button"
-      className={`btn btn-lg ${className || ''}`}
+      className="btn btn-lg btn-success"
       onClick={() => onClick()}
     >
       {label}
@@ -39,7 +37,6 @@ const ButtonView = function ({
 };
 
 ButtonView.defaultProps = {
-  className: undefined,
   id: undefined,
 };
 
