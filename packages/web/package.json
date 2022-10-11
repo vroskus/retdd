@@ -24,7 +24,7 @@
     "flow": "flow",
     "test": "start-server-and-test test:pre :7001 test:run && yarn test:post",
     "test:pre": "yarn test:pre:clean && yarn test:pre:build && yarn test:pre:config && yarn test:pre:serve",
-    "test:pre:clean": "rm -rf .nyc_output && rm -rf .test_build",
+    "test:pre:clean": "rm -rf .nyc_output && rm -rf ./coverage && rm -rf ./test_build",
     "test:pre:build": "SKIP_PREFLIGHT_CHECK=true DISABLE_ESLINT_PLUGIN=true BUILD_PATH='./test_build' CYPRESS_INSTRUMENT_PRODUCTION=true react-scripts -r @cypress/instrument-cra build",
     "test:pre:config": "DEPLOYMENT_ENV=TEST yarn config:prepare ./src/config.js ./test_build/config.js",
     "test:pre:serve": "PORT=7001 serve -s test_build",
