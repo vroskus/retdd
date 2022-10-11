@@ -29,12 +29,12 @@
     "@babel/preset-env": "7.19.3",
     "@babel/preset-flow": "7.18.6",
     "@babel/register": "7.18.9",
-    "axios": "0.27.2",
     "body-parser": "1.20.0",
     "compression": "1.7.4",
     "cors": "2.8.5",
     "express": "4.18.1",
     "flow-copy-source": "2.0.9",
+    "lodash": "4.17.21",
     "utility.enums": "^1.0.0",
     "utility.helpers": "^1.0.0",
     "utility.types": "^1.0.0"
@@ -62,10 +62,10 @@
     "collectCoverage": true,
     "coverageThreshold": {
       "global": {
-        "statements": 87.87,
-        "branches": 25,
-        "lines": 90.32,
-        "functions": 70
+        "statements": 96.42,
+        "branches": 50,
+        "lines": 100,
+        "functions": 87.5
       }
     }
   }

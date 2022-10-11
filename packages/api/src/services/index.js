@@ -12,6 +12,9 @@ import config from '../config';
 import QuoteService from './Quote';
 import mockServices from './mocks';
 
+// Data
+import data from '../../data.json';
+
 // Types
 import type {
   $Config as $QuoteConfig,
@@ -23,7 +26,7 @@ export type $Services = {
 
 const services = (): $Services => ({
   Quote: new QuoteService({
-    timeout: Number(config.TIMEOUT) || 10000,
+    data,
   }),
 });
 

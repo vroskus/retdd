@@ -10,7 +10,9 @@ import QuoteServiceMock from './Quote';
 
 const mockServices = (): $Services => ({
   Quote: new QuoteServiceMock({
-    timeout: 0,
+    data: [
+      'Test quote',
+    ],
   }),
 });
 

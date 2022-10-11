@@ -2,7 +2,6 @@
 
 // Mock services
 import ApiServiceMock from './Api';
-import HistoryService from '../History';
 
 // Types
 import type {
@@ -14,7 +13,6 @@ const mockServices = (): $Services => ({
     apiUrl: '',
     timeout: 0,
   }),
-  History: HistoryService,
 });
 
 export default mockServices;

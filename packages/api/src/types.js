@@ -10,7 +10,7 @@ type $ApiRoutes = {|
     response: {|
       value: string,
     |},
-  |},
+  |}
 |};
 
 export type $ApiRouteParams<ROUTE: string> = $ApiRoutes[ROUTE]['params'];

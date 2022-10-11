@@ -27,12 +27,6 @@ if (window && config.DEPLOYMENT_ENV === deploymentEnvironment.test) {
   window.Services = Services;
 }
 
-const {
-  History: {
-    render: HistoryController,
-  },
-} = Services;
-
 const runBeforeAppStart = (): void => {
 };
 
@@ -40,10 +34,7 @@ const App = function (): $Component {
   runBeforeAppStart();
 
   return (
-    <>
-      <Main />
-      <HistoryController />
-    </>
+    <Main />
   );
 };
 

@@ -11,9 +11,6 @@ import type {
 } from '../Quote';
 
 class QuoteServiceMock extends QuoteService<$Config> {
-  async get(): Promise<string> {
-    return 'Test quote';
-  }
 }
 
 export default QuoteServiceMock;

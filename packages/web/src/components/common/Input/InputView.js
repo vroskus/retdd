@@ -25,14 +25,16 @@ const InputView = function ({
   value,
 }: $Props): $Component {
   return (
-    <input
+    <div
       id={id}
       aria-label={label}
       className="form-control"
-      readOnly
-      type="text"
-      value={value}
-    />
+      style={{
+        whiteSpace: 'pre-line',
+      }}
+    >
+      {value}
+    </div>
   );
 };
 

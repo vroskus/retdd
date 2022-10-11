@@ -1,35 +1,24 @@
 // @flow
 
 // Helpers
-import axios from 'axios';
+import _ from 'lodash';
 
+// Types
 export type $Config = {|
-  timeout: number,
+  data: Array<string>,
 |};
 
 class QuoteService<C: $Config> {
-  connection: any;
+  data: Array<string>;
 
   constructor({
-    timeout,
+    data,
   }: C) {
-    const options = {
-      baseURL: 'https://api.kanye.rest',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      timeout,
-    };
-
-    // Connection setup
-    this.connection = axios.create(options);
+    this.data = data;
   }
 
-  async get(): Promise<string> {
-    const response = await this.connection.get('/');
-
-    return response.data.quote;
+  async getQuote(): Promise<string> {
+    return _.sample(this.data);
   }
 }
 

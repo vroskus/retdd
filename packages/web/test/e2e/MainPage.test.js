@@ -15,18 +15,18 @@ context('#MainPage', () => {
     });
   });
 
-  describe('#ButtonGetQuote', () => {
+  describe('#ButtonGetOneQuote', () => {
     it('should be visible', () => {
-      cy.get('#ButtonGetQuote')
+      cy.get('#ButtonGetOneQuote')
         .should('be.visible');
     });
 
     it('should get new quote and show it in #InputQuote', () => {
-      cy.get('#ButtonGetQuote')
+      cy.get('#ButtonGetOneQuote')
         .click();
 
       cy.get('#InputQuote')
-        .should('have.value', 'Test quote');
+        .should('have.text', 'Test quote');
     });
   });
 });

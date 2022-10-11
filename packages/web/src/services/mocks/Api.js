@@ -1,6 +1,8 @@
 // @flow
 
-/* eslint-disable class-methods-use-this */
+// Helpers
+import axios from 'axios';
+import AxiosMockAdapter from 'axios-mock-adapter';
 
 // Service
 import ApiService from '../Api';
@@ -11,12 +13,17 @@ import type {
 } from '../Api';
 
 class ApiServiceMock extends ApiService<$Config> {
-  async getOneQuote(): Promise<{|
-    value: string,
-  |}> {
-    return {
-      value: 'Test quote',
-    };
+  constructor(config: $Config) {
+    const mock = new AxiosMockAdapter(axios);
+
+    mock.onGet('/quote/get_one').reply(
+      200,
+      {
+        value: 'Test quote',
+      },
+    );
+
+    super(config);
   }
 }
 
