@@ -21,7 +21,7 @@ context('#MainPage', () => {
         .should('be.visible');
     });
 
-    it('should get new quote and show it in #InputQuote', () => {
+    it('should get one quote and show it in #InputQuote', () => {
       cy.get('#ButtonGetOneQuote')
         .click();
 
