@@ -7,12 +7,12 @@ import {
   apiVersion,
 } from '../../src/config';
 
-const request = supertest(app);
+const appInTestMode = supertest(app);
 
 describe('Quote routes', () => {
   describe(`/${apiVersion}/quote/get_one`, () => {
     it('should return one quote', async () => {
-      const response = await request.get(`/${apiVersion}/quote/get_one`);
+      const response = await appInTestMode.get(`/${apiVersion}/quote/get_one`);
 
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('value', 'Test quote');
