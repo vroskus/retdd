@@ -6,7 +6,7 @@ import type {
 } from '..';
 
 // Mock services
-import QuoteServiceMock from './Quote';
+import QuoteServiceMock from './QuoteServiceMock';
 
 const mockServices = (): $Services => ({
   Quote: new QuoteServiceMock({
