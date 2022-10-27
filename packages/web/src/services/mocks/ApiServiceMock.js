@@ -5,12 +5,12 @@ import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 
 // Service
-import ApiService from '../Api';
+import ApiService from '../ApiService';
 
 // Types
 import type {
   $Config,
-} from '../Api';
+} from '../ApiService';
 
 class ApiServiceMock extends ApiService<$Config> {
   constructor(config: $Config) {
