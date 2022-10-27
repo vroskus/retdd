@@ -1,7 +1,7 @@
 // @flow
 
 // Mock services
-import ApiServiceMock from './Api';
+import ApiServiceMock from './ApiServiceMock';
 
 // Types
 import type {

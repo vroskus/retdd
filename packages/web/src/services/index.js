@@ -10,12 +10,12 @@ import mockServices from './mocks';
 import config from '../config';
 
 // Services
-import ApiService from './Api';
+import ApiService from './ApiService';
 
 // Types
 import type {
   $Config as $ApiConfig,
-} from './Api';
+} from './ApiService';
 
 // Types
 export type $Services = {|

@@ -3,12 +3,12 @@
 /* eslint-disable class-methods-use-this */
 
 // Service
-import QuoteService from '../Quote';
+import QuoteService from '../QuoteService';
 
 // Types
 import type {
   $Config,
-} from '../Quote';
+} from '../QuoteService';
 
 class QuoteServiceMock extends QuoteService<$Config> {
 }

@@ -9,7 +9,7 @@ import {
 import config from '../config';
 
 // Services
-import QuoteService from './Quote';
+import QuoteService from './QuoteService';
 import mockServices from './mocks';
 
 // Data
@@ -17,11 +17,11 @@ import data from '../../data.json';
 
 // Types
 import type {
-  $Config as $QuoteConfig,
-} from './Quote';
+  $Config as $QuoteServiceConfig,
+} from './QuoteService';
 
 export type $Services = {
-  Quote: QuoteService<$QuoteConfig>,
+  Quote: QuoteService<$QuoteServiceConfig>,
 };
 
 const services = (): $Services => ({
